@@ -7,16 +7,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<h1>Singup!</h1>
-<%= form_for :user, url:, '/user' do |f| %>
 
-Name: 
-Email:
-Password:
-Password Confirmation:
-<%= f.submit "Submit" %>
-
+<% if current_user %>
+  Signed in as <%= current_user.name %> | <%= link_to "Logout", '/logout' %>
+<% else %>
+  <%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %>
 <% end %>
+
+
 
 <%= yield %>
 

@@ -1,18 +1,13 @@
 Rails.application.routes.draw do
  
-  get 'sessions/destroy'
+  root 'cable#cables'
 
-  get 'sessions/new'
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  get '/logout' => 'sessions#destroy'
 
-  get 'sessions/create'
+  get '/signup' => 'users#new'
+  post '/user' => 'users#create'
 
-  get 'users/destroy'
-
-  get 'users/new'
-
-  get 'users/create'
-
- get '/signup' => 'user#new'
- post '/users' => 'user#create'
 
 end
